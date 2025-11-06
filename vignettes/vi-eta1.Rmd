@@ -1,0 +1,107 @@
+---
+title: "viñeta1"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{viñeta1}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+Introducción
+
+En esta viñeta se muestra cómo usar las funciones del paquete para trabajar con los datos meteorológicos del INTA – SIGA.
+El paquete incluye funciones para descargar datos de distintas estaciones, generar resúmenes de temperatura y graficar resultados.
+
+Las tres funciones principales son:
+
+descargar_leer_estaciones()
+
+tabla_resumen_temperatura()
+
+grafico_temperatura_mensual()
+
+
+Instalación del paquete
+
+Antes de poder ejecutar el código de esta viñeta, es necesario instalar el paquete que estamos desarrollando en tu computadora.
+
+Cargar el paquete
+
+Una vez instalado, cargalo con:
+
+```{r}
+library(meteorologia)
+```
+
+Descargar y leer datos de una estación
+
+La función descargar_leer_estaciones() sirve para descargar y leer los datos meteorológicos de una estación del INTA.
+
+Primer argumento: el código (id) de la estación, por ejemplo "NH0472".
+
+Segundo argumento: la ruta o carpeta donde se guardarán los datos (por ejemplo "datos/estacionNH0472.csv").
+
+Descargar y leer los datos de la estación NH0472
+
+```{r}
+estacion1 <- leer_datos_estacion("NH0472", "../estacionNH0472.csv")
+```
+
+
+Si el archivo ya está guardado en esa ruta, la función no lo vuelve a descargar; simplemente lo lee desde el archivo existente.
+El resultado es un conjunto de datos (data frame o tibble) con las variables meteorológicas medidas en esa estación.
+
+Crear una tabla resumen de temperatura
+
+Una vez que tenemos los datos, podemos generar un resumen estadístico de la temperatura con tabla_resumen_temperatura().
+
+Esta función calcula, para cada estación:
+
+Promedio de la temperatura a 150 cm
+
+Desvío estándar
+
+Temperatura máxima
+
+Temperatura mínima
+
+```{r}
+resumen_temp <- tabla_resumen_temperatura(estacion1)
+resumen_temp
+```
+
+
+
+El resultado es una tabla que muestra estas medidas resumidas.
+Esto permite tener una idea rápida del comportamiento térmico de la estación a lo largo del tiempo.
+
+Graficar la temperatura mensual promedio
+
+La función grafico_temperatura_mensual() permite visualizar las temperaturas promedio mensuales de una o varias estaciones.
+
+Argumento 1: el conjunto de datos de las estaciones.
+
+Argumento 2: un vector con los colores a usar en el gráfico, debe coincidir con la cantidad unica de estaciones que haya en el dataset.
+
+Argumento 3 (opcional): un título para el gráfico.
+
+```{r}
+grafico_temperatura_mensual(estacion1, c("purple"), "Temperatura mensual promedio - Estación NH0472")
+```
+
+
+El resultado es un gráfico de líneas que muestra cómo varía la temperatura promedio por mes
+
+Este flujo completo permite:
+
+Descargar los datos automáticamente.
+
+Analizarlos con un resumen estadístico.
+
+Visualizarlos de manera clara con un gráfico.

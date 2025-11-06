@@ -1,18 +1,17 @@
 Package: meteorologia
-Title: Estaciones Meteorológicas: Análisis Y Datos
+Title: Analisis de Estaciones Meteorologicas y Datos Ambientales
 Version: 0.0.0.9000
-Authors@R: 
-    person("Bianca", "Rossi", , "biancarossiscaglia1@gmail.com", role = c("aut", "cre")), 
-    person("Liz", "Martinez", "lizmartinezfacultad@gmail.com", role = c("aut", "cre"))
-Description: Este paquete proporciona un conjunto de funciones diseñadas para leer, 
-  analizar y purificar archivos de bases de datos provenientes de estaciones 
-  meteorológicas. Permite procesar variables ambientales como precipitación, 
-  temperatura, humedad, presión atmosférica y velocidad del viento. 
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+Authors@R:c(
+  person("Bianca", "Rossi", email = "biancarossiscaglia1@gmail.com", role = c("aut", "cre")),
+  person("Liz", "Martinez", email = "lizmartinezfacultad@gmail.com", role = "aut"))
+Description: Este paquete contiene funciones para leer, procesar y analizar datos de estaciones meteorologicas. Permite trabajar con variables como temperatura, precipitacion, humedad, presion atmosferica y velocidad del viento.
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
 URL: https://github.com/biancaarossi/meteorologia
 BugReports: https://github.com/biancaarossi/meteorologia/issues
-
+Depends: R(>= 4.1.0)
+LazyData: true
+Suggests: knitr, rmarkdown
+VignetteBuilder: knitr
