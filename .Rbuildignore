@@ -3,3 +3,8 @@
 ^data_raw$
 ^data_raw/.*
 ^README\.Rmd$
+^estacionNH0472\.csv$
+^.*\.csv$
+^CODE_OF_CONDUCT\.md$
+^CONTRIBUTING\.md$
+^LICENSE\.md$

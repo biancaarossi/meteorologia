@@ -1,6 +1,8 @@
-#' Funcion de Tabla Resumen Datos Meteorológicos
+#' Funcion de Tabla Resumen Datos Meteorologicos
 #'
-#' Esta funcion toma un conjunto de datos con datos de una o más estaciones, y devuelve una tabla con datos sobre la temperatura abrigo 150 cm de esa/as estacion/es (el promedio, desvio estandar, temperatura máxima, y temperatura mínima)
+#' Esta funcion toma un conjunto de datos con datos de una o mas estaciones,
+#' y devuelve una tabla con datos sobre la temperatura abrigo 150 cm de esa/as estacion/es
+#' (el promedio, desvio estandar, temperatura maxima, y temperatura minima)
 #' @param estacion conjunto de datos (csv) del INTA.
 #'
 #' @returns tabla resumen
@@ -18,6 +20,7 @@ tabla_resumen_temperatura <- function(estacion) {
   if (!is.data.frame(estacion)) {
     stop("El argumento estacion debe ser un data.frame o tibble con los datos de las estaciones.")
   }
+
   # Resumen
   resumen <- estacion |>
     dplyr::group_by(id) |>
@@ -30,3 +33,7 @@ tabla_resumen_temperatura <- function(estacion) {
 
   return(resumen)
 }
+
+#' @importFrom stats sd
+NULL
+

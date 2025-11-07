@@ -1,14 +1,16 @@
-#' Función de Gráfico de la Temperatura Mensual
+#' Funcion de Grafico de la Temperatura Mensual
 #'
-#' La función se encarga de generar un gráfico de lineas para, a través de sus parámetros,
-#' mostrar la temperatura promedio mensual de cada estación. Desde los datos, caclula el promedio
-#' de temperatura mensual, y genera un gráfico comparando cada resultado.
-#' @param df, data frame con información de estaciones
+#' La funcion se encarga de generar un grafico de lineas para, a traves de sus parametros,
+#' mostrar la temperatura promedio mensual de cada estacion. Desde los datos, caclula el promedio
+#' de temperatura mensual, y genera un grafico comparando cada resultado.
+#' @param df, data frame con informacion de estaciones
 #' @param colores, string o vector de colores
 #' @param titulo string
 #'
-#' @returns Gráfico de ggplot con la temperatura mensual de cada estación
+#' @returns Grafico de ggplot con la temperatura mensual de cada estacion
 #' @export
+#'
+#' @importFrom grDevices colors
 #'
 #' @examples
 #' estaciones <- data.frame(
@@ -16,7 +18,7 @@
 #'   fecha = as.Date(c("2020-01-01", "2020-02-01")),
 #'   temperatura_abrigo_150cm = c(10, 12)
 #' )
-#' grafico_temperatura_mensual(estaciones, colores = c("red"), titulo = "Ejemplo"
+#' grafico_temperatura_mensual(estaciones, colores = c("red"), titulo = "Ejemplo")
 
 grafico_temperatura_mensual <- function(df, colores = NULL, titulo = "Temperatura") {
 
@@ -43,15 +45,15 @@ grafico_temperatura_mensual <- function(df, colores = NULL, titulo = "Temperatur
     stats::setNames(colores[seq_len(n_ids)], estaciones)
   }
 
-  # gráfico
+  # grafico
   ggplot2::ggplot(df_mes, ggplot2::aes(x = mes, y = promedio, color = id, group = id)) +
     ggplot2::geom_line(linewidth = 1) +
     ggplot2::geom_point(size = 1.8) +
-    ggplot2::scale_color_manual(values = pal, name = "Estación") +
+    ggplot2::scale_color_manual(values = pal, name = "Estacion") +
     ggplot2::labs(
       title = titulo,
       x = "Mes",
-      y = "Temperatura promedio (°C)"
+      y = "Temperatura promedio (C)"
     ) +
     ggplot2::theme_minimal(base_size = 12) +
     ggplot2::theme(

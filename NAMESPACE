@@ -3,3 +3,5 @@
 export(grafico_temperatura_mensual)
 export(leer_datos_estacion)
 export(tabla_resumen_temperatura)
+importFrom(grDevices,colors)
+importFrom(stats,sd)

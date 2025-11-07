@@ -12,58 +12,58 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 ```
-
-# meteorologia
-
+meteorologia
 <!-- badges: start -->
-
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 
 <!-- badges: end -->
 
-El objetivo de este paquete es analizar datos de estaciones meteorologicas, resumirlos y presentarlos
+El objetivo de este paquete es analizar datos de estaciones meteorologicas, resumirlos y presentarlos de manera clara.
 
-## Instalación
+Instalacion
 
-Podes instalar el paquete en [GitHub](https://github.com/) con:
-
-``` r
-# install.packages("pak")
+Se puede instalar el paquete directamente desde GitHub
+ con:
+   
+  # install.packages("pak")
 pak::pak("biancarossi/meteorologia")
-```
 
-## Carga paquete
+Carga del paquete
 
-Se debe cargar el paquete con el siguente código.
-
-```{r}
+Para usar el paquete, cargarlo con:
 library(meteorologia)
-```
 
-## Funciones principales 
+Funciones principales
 
 El paquete incluye tres funciones principales:
 
-descargar_leer_estaciones() Descarga y lee los datos meteorológicos de una estación específica del INTA.
+1. leer_datos_estacion()
 
-```{r}
- estacion1 <- leer_datos_estacion("NH0910", "../estacionNH0910.csv")
-```
+Descarga y lee los datos meteorologicos de una estacion especifica del INTA.
+estacion1 <- leer_datos_estacion("NH0910", "inst/extdata/estacionNH0910.csv")
 
-tabla_resumen_temperatura() Crea una tabla resumen con estadísticas básicas de temperatura (promedio, desvío, máximos y mínimos).
 
-```{r}
+2. tabla_resumen_temperatura()
+
+Crea una tabla resumen con estadisticas basicas de temperatura: promedio, desvio estandar, temperatura maxima y minima.
+
 tabla_resumen_temperatura(estacion1)
-```
 
-grafico_temperatura_mensual() Genera un gráfico de líneas con la temperatura promedio mensual de una o varias estaciones.
+3. grafico_temperatura_mensual()
 
-```{r}
+Genera un grafico de lineas con la temperatura promedio mensual de una o varias estaciones.
+
 grafico_temperatura_mensual(estacion1, c("purple"), "Temperatura promedio mensual")
-```
 
-## Créditos 
+Creditos
 
-Datos meteorológicos obtenidos del Instituto Nacional de Tecnología Agropecuaria (INTA) – Sistema de Información y Gestión Agropecuaria (SIGA).
+Datos meteorologicos obtenidos del Instituto Nacional de Tecnologia Agropecuaria (INTA) – Sistema de Informacion y Gestion Agropecuaria (SIGA).
 
-# Autores del paquete: Bianca Rossi y Liz Emilia Martinez
+Autores
+
+Bianca Rossi y Liz Emilia Martinez
+
+Licencia
+
+MIT © Bianca Rossi
+
+
