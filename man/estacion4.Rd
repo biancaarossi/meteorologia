@@ -3,57 +3,57 @@
 \docType{data}
 \name{estacion4}
 \alias{estacion4}
-\title{Datos meteorológicos diarios de la estación NH0098 --> Estación 4}
+\title{Datos meteorologicos diarios de la estacion NH0098 --> Estacion 4}
 \format{
-Un tibble con varias filas (una por día) y 30 variables:
+Un tibble con varias filas (una por dia) y 30 variables:
 
 \describe{
-\item{id}{identificador de la estación meteorológica (NH0910)}
-\item{fecha}{fecha de la observación (año-mes-día)}
+\item{id}{identificador de la estacion meteorologica (NH0910)}
+\item{fecha}{fecha de la observacion (ano-mes-dia)}
 \item{temperatura_abrigo_150cm}{temperatura promedio del aire medida a 150 cm (°C)}
-\item{temperatura_abrigo_150cm_maxima}{temperatura máxima diaria a 150 cm (°C)}
-\item{temperatura_abrigo_150cm_minima}{temperatura mínima diaria a 150 cm (°C)}
-\item{temperatura_intemperie_5cm_minima}{temperatura mínima al aire libre a 5 cm (°C)}
-\item{temperatura_intemperie_50cm_minima}{temperatura mínima al aire libre a 50 cm (°C)}
-\item{temperatura_intemperie_150cm_minima}{temperatura mínima al aire libre a 150 cm (°C)}
+\item{temperatura_abrigo_150cm_maxima}{temperatura maxima diaria a 150 cm (°C)}
+\item{temperatura_abrigo_150cm_minima}{temperatura minima diaria a 150 cm (°C)}
+\item{temperatura_intemperie_5cm_minima}{temperatura minima al aire libre a 5 cm (°C)}
+\item{temperatura_intemperie_50cm_minima}{temperatura minima al aire libre a 50 cm (°C)}
+\item{temperatura_intemperie_150cm_minima}{temperatura minima al aire libre a 150 cm (°C)}
 \item{temperatura_suelo_5cm_media}{temperatura promedio del suelo a 5 cm (°C)}
 \item{temperatura_suelo_10cm_media}{temperatura promedio del suelo a 10 cm (°C)}
 \item{humedad_suelo}{humedad del suelo (\% o valor relativo)}
-\item{precipitacion_pluviometrica}{precipitación acumulada (mm)}
-\item{granizo}{presencia de granizo (0 = no, 1 = sí)}
-\item{nieve}{presencia de nieve (0 = no, 1 = sí)}
+\item{precipitacion_pluviometrica}{precipitacion acumulada (mm)}
+\item{granizo}{presencia de granizo (0 = no, 1 = si)}
+\item{nieve}{presencia de nieve (0 = no, 1 = si)}
 \item{heliofania_efectiva}{horas efectivas de sol (h)}
-\item{heliofania_relativa}{porcentaje de heliofanía relativa (\%)}
-\item{tension_vapor_media}{presión o tensión de vapor promedio (hPa o equivalente)}
+\item{heliofania_relativa}{porcentaje de heliofania relativa (\%)}
+\item{tension_vapor_media}{presion o tension de vapor promedio (hPa o equivalente)}
 \item{humedad_media}{humedad relativa promedio (\%)}
 \item{humedad_media_8_14_20}{promedio de humedad a las 8, 14 y 20 h (\%)}
-\item{rocio_medio}{temperatura media del punto de rocío (°C)}
-\item{duracion_follaje_mojado}{duración del follaje mojado (h)}
+\item{rocio_medio}{temperatura media del punto de rocio (°C)}
+\item{duracion_follaje_mojado}{duracion del follaje mojado (h)}
 \item{velocidad_viento_200cm_media}{velocidad promedio del viento a 200 cm (km/h)}
-\item{direccion_viento_200cm}{dirección del viento a 200 cm (grados o cardinal)}
+\item{direccion_viento_200cm}{direccion del viento a 200 cm (grados o cardinal)}
 \item{velocidad_viento_1000cm_media}{velocidad promedio del viento a 10 m (km/h)}
-\item{direccion_viento_1000cm}{dirección del viento a 10 m (grados o cardinal)}
-\item{velocidad_viento_maxima}{velocidad máxima del viento (km/h)}
-\item{presion_media}{presión atmosférica media (hPa)}
-\item{radiacion_global}{radiación solar global (MJ/m² o W/m²)}
-\item{radiacion_neta}{radiación neta (MJ/m² o W/m²)}
-\item{evaporacion_tanque}{evaporación medida en tanque (mm)}
-\item{evapotranspiracion_potencial}{evapotranspiración potencial estimada (mm)}
-\item{profundidad_napa}{profundidad de la napa freática (m)}
-\item{horas_frio}{cantidad de horas de frío acumuladas (h)}
-\item{unidad_frio}{unidades de frío acumuladas (valor relativo o índice)}
+\item{direccion_viento_1000cm}{direccion del viento a 10 m (grados o cardinal)}
+\item{velocidad_viento_maxima}{velocidad maxima del viento (km/h)}
+\item{presion_media}{presion atmosferica media (hPa)}
+\item{radiacion_global}{radiacion solar global (MJ/m² o W/m²)}
+\item{radiacion_neta}{radiacion neta (MJ/m² o W/m²)}
+\item{evaporacion_tanque}{evaporacion medida en tanque (mm)}
+\item{evapotranspiracion_potencial}{evapotranspiracion potencial estimada (mm)}
+\item{profundidad_napa}{profundidad de la napa freatica (m)}
+\item{horas_frio}{cantidad de horas de frio acumuladas (h)}
+\item{unidad_frio}{unidades de frio acumuladas (valor relativo o indice)}
 }
 }
 \source{
-Instituto Nacional de Tecnología Agropecuaria (INTA) – Sistema de Información y Gestión Agropecuaria (SIGA): https://siga.inta.gob.ar
+Instituto Nacional de Tecnologia Agropecuaria (INTA) – Sistema de Informacion y Gestion Agropecuaria (SIGA): https://siga.inta.gob.ar
 }
 \usage{
 estacion4
 }
 \description{
-Registra variables climáticas medidas por la estación meteorológica NH0098, perteneciente al Instituto Nacional de Tecnología Agropecuaria (INTA) y disponibles en el Sistema de Información y Gestión Agropecuaria (SIGA).
+Registra variables climaticas medidas por la estacion meteorologica NH0098, perteneciente al Instituto Nacional de Tecnologia Agropecuaria (INTA) y disponibles en el Sistema de Informacion y Gestion Agropecuaria (SIGA).
 }
 \details{
-Incluye datos diarios de temperatura, humedad, viento, presión, radiación, precipitación y otras variables meteorológicas.
+Incluye datos diarios de temperatura, humedad, viento, presion, radiacion, precipitacion y otras variables meteorologicas.
 }
 \keyword{datasets}

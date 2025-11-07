@@ -2,22 +2,32 @@
 % Please edit documentation in R/leer_datos_estacion.R
 \name{leer_datos_estacion}
 \alias{leer_datos_estacion}
-\title{Función de lectura de los datos de las estaciones}
+\title{LEER DATOS DE UNA ESTACION METEOROLOGICA}
 \usage{
 leer_datos_estacion(id_estacion, ruta_archivo)
 }
 \arguments{
-\item{id_estacion}{es un string del id}
+\item{id_estacion}{Cadena de texto que identifica la estacion a leer.}
 
-\item{ruta_archivo}{string con la ruta del archivo, donde está guardado, o donde se quiera descargar.}
+\item{ruta_archivo}{Ruta local donde se almacenara o desde donde se leera el archivo CSV.}
 }
 \value{
-conjunto de datos de la estación/es llamadas
+Un objeto de clase \code{data.frame} (tibble) con los registros meteorologicos de
+la estacion seleccionada. Cada fila representa una observacion diaria.
 }
 \description{
-La función se encarga de leer los datos de los archivos de las estaciones, el usuario debe pasar los dos argumentos, siendo estos el id de la estación y la ruta para acceder a ellos, a su lectura y descarga.
+Descarga (si es necesario) y lee el archivo CSV de una estacion meteorologica del conjunto de estaciones disponibles.
+}
+\details{
+La funcion verifica si el archivo correspondiente a la estacion ya esta
+descargado en el sistema local. Si no existe, lo descarga desde el repositorio
+en linea de referencia. Luego, lee los datos y
+devuelve un data frame con las observaciones meteorologicas.
 }
 \examples{
-leer_datos_estacion("NHO472", "Downloads/Estaciones")
-
+\dontrun{
+# Leer el archivo incluido en el paquete
+ruta <- system.file("extdata", "NH0472.csv", package = "meteorologia")
+datos <- leer_datos_estacion("NH0472", ruta)
+}
 }

@@ -1,14 +1,31 @@
-#' Funcion de lectura de los datos de las estaciones
+#' LEER DATOS DE UNA ESTACION METEOROLOGICA
 #'
-#' La funcion se encarga de leer los datos de los archivos de las estaciones, el usuario debe pasar los dos argumentos, siendo estos el id de la estacion y la ruta para acceder a ellos, a su lectura y descarga.
-#' @param id_estacion es un string del id
-#' @param ruta_archivo string con la ruta del archivo, donde esta guardado, o donde se quiera descargar.
+#' Descarga (si es necesario) y lee el archivo CSV de una estacion meteorologica del conjunto de estaciones disponibles.
 #'
-#' @returns conjunto de datos de la estación/es llamadas
+#' @param id_estacion Cadena de texto que identifica la estacion a leer.
+#' @param ruta_archivo Ruta local donde se almacenara o desde donde se leera el archivo CSV.
+#'
+#' @details
+#' La funcion verifica si el archivo correspondiente a la estacion ya esta
+#' descargado en el sistema local. Si no existe, lo descarga desde el repositorio
+#' en linea de referencia. Luego, lee los datos y
+#' devuelve un data frame con las observaciones meteorologicas.
+#'
+#' @return
+#' Un objeto de clase `data.frame` (tibble) con los registros meteorologicos de
+#' la estacion seleccionada. Cada fila representa una observacion diaria.
+#'
+#'
+#' @examples
+#' \dontrun{
+#' # Leer el archivo incluido en el paquete
+#' ruta <- system.file("extdata", "NH0472.csv", package = "meteorologia")
+#' datos <- leer_datos_estacion("NH0472", ruta)
+#' }
 #' @export
-#'
-#' @examples leer_datos_estacion("NHO472", "Downloads/Estaciones")
-#'
+
+
+
 leer_datos_estacion <- function(id_estacion, ruta_archivo) {
 
   # Estaciones disponibles
@@ -23,25 +40,24 @@ leer_datos_estacion <- function(id_estacion, ruta_archivo) {
 
   # Verificar ID valido
   if (!id_estacion %in% names(enlaces)) {
-    cli::cli_abort("El ID de estación '{id_estacion}' no es válido. Usa alguno de los siguientes: metadatos, NH0472, NH0910, NH0046, NH0098, NH0437")
+    cli::cli_abort("El ID de estacion '{id_estacion}' no es valido. Usa alguno de los siguientes: metadatos, NH0472, NH0910, NH0046, NH0098, NH0437")
   }
 
   link_archivo <- enlaces[[id_estacion]]
 
   # Leer o descargar segun corresponda
   if (file.exists(ruta_archivo)) {
-    cli::cli_inform("El archivo ya está descargado, se procede a leerlo...")
+    cli::cli_inform("El archivo ya esta descargado, se procede a leerlo...")
   } else {
-    cli::cli_inform("El archivo no está descargado, se procede a descargarlo...")
+    cli::cli_inform("El archivo no esta descargado, se procede a descargarlo...")
     dir.create(dirname(ruta_archivo), showWarnings = FALSE, recursive = TRUE)
     utils::download.file(link_archivo, destfile = ruta_archivo)
   }
 
-  # Leer el archivo con readr
+  # Leer el archivo
   datos_estacion <- readr::read_csv(ruta_archivo, show_col_types = FALSE)
 
-  cli::cli_inform("Lectura completada correctamente para la estación {id_estacion}.")
+  cli::cli_inform("Lectura completada correctamente para la estacion {id_estacion}.")
 
   return(datos_estacion)
 }
-

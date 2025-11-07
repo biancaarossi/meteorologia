@@ -2,7 +2,7 @@
 % Please edit documentation in R/tabla_resumen_temperatura.R
 \name{tabla_resumen_temperatura}
 \alias{tabla_resumen_temperatura}
-\title{Funcion de Tabla Resumen Datos Meteorológicos}
+\title{Funcion de Tabla Resumen Datos Meteorologicos}
 \usage{
 tabla_resumen_temperatura(estacion)
 }
@@ -13,7 +13,9 @@ tabla_resumen_temperatura(estacion)
 tabla resumen
 }
 \description{
-Esta funcion toma un conjunto de datos con datos de una o más estaciones, y devuelve una tabla con datos sobre la temperatura abrigo 150 cm de esa/as estacion/es (el promedio, desvio estandar, temperatura máxima, y temperatura mínima)
+Esta funcion toma un conjunto de datos con datos de una o mas estaciones,
+y devuelve una tabla con datos sobre la temperatura abrigo 150 cm de esa/as estacion/es
+(el promedio, desvio estandar, temperatura maxima, y temperatura minima)
 }
 \examples{
 df <- data.frame(

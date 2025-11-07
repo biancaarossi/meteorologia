@@ -2,24 +2,24 @@
 % Please edit documentation in R/grafico_temperatura_mensual.R
 \name{grafico_temperatura_mensual}
 \alias{grafico_temperatura_mensual}
-\title{Función de Gráfico de la Temperatura Mensual}
+\title{Funcion de Grafico de la Temperatura Mensual}
 \usage{
 grafico_temperatura_mensual(df, colores = NULL, titulo = "Temperatura")
 }
 \arguments{
-\item{df, }{data frame con información de estaciones}
+\item{df, }{data frame con informacion de estaciones}
 
 \item{colores, }{string o vector de colores}
 
 \item{titulo}{string}
 }
 \value{
-Gráfico de ggplot con la temperatura mensual de cada estación
+Grafico de ggplot con la temperatura mensual de cada estacion
 }
 \description{
-La función se encarga de generar un gráfico de lineas para, a través de sus parámetros,
-mostrar la temperatura promedio mensual de cada estación. Desde los datos, caclula el promedio
-de temperatura mensual, y genera un gráfico comparando cada resultado.
+La funcion se encarga de generar un grafico de lineas para, a traves de sus parametros,
+mostrar la temperatura promedio mensual de cada estacion. Desde los datos, caclula el promedio
+de temperatura mensual, y genera un grafico comparando cada resultado.
 }
 \examples{
 estaciones <- data.frame(
@@ -27,5 +27,5 @@ estaciones <- data.frame(
   fecha = as.Date(c("2020-01-01", "2020-02-01")),
   temperatura_abrigo_150cm = c(10, 12)
 )
-grafico_temperatura_mensual(estaciones, colores = c("red"), titulo = "Ejemplo"
+grafico_temperatura_mensual(estaciones, colores = c("red"), titulo = "Ejemplo")
 }
