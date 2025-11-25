@@ -8,6 +8,11 @@
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 
+![R-CMD-check](https://github.com/biancaarossi/meteorologia/actions/workflows/R-CMD-check.yaml/badge.svg)
+
+![test-coverage](https://github.com/biancaarossi/meteorologia/actions/workflows/test-coverage.yaml/badge.svg)
+
+
 <!-- badges: end -->
 
 El objetivo de este paquete es analizar datos de estaciones

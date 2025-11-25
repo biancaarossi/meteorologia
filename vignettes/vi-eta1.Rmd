@@ -1,8 +1,8 @@
 ---
-title: "viñeta1"
+title: "Introduccion al paquete meteorologia"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{viñeta1}
+  %\VignetteIndexEntry{Introduccion al paquete meteorologia}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -13,23 +13,33 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 ```
-Introducción
+## Introducción
 
-En esta viñeta se muestra cómo usar las funciones del paquete para trabajar con los datos meteorológicos del INTA – SIGA.
-El paquete incluye funciones para descargar datos de distintas estaciones, generar resúmenes de temperatura y graficar resultados.
+En esta viñeta se muestra cómo usar las funciones del paquete meteorologia para trabajar con los datos meteorológicos del INTA – SIGA.
+El paquete incluye funciones para:
+- Descargar datos de distintas estaciones
+- Generar resúmenes de temperatura
+- Graficar resultados de manera clara.
+
 
 Las tres funciones principales son:
 
-descargar_leer_estaciones()
+- leer_datos_estacion()
 
-tabla_resumen_temperatura()
+- tabla_resumen_temperatura()
 
-grafico_temperatura_mensual()
+- grafico_temperatura_mensual()
 
 
 Instalación del paquete
 
 Antes de poder ejecutar el código de esta viñeta, es necesario instalar el paquete que estamos desarrollando en tu computadora.
+
+# Instalar desde CRAN o GitHub según corresponda
+
+# install.packages("meteorologia")
+
+# devtools::install_github("usuario/meteorologia")
 
 Cargar el paquete
 
@@ -41,7 +51,7 @@ library(meteorologia)
 
 Descargar y leer datos de una estación
 
-La función descargar_leer_estaciones() sirve para descargar y leer los datos meteorológicos de una estación del INTA.
+La función leer_datos_estacion() sirve para descargar y leer los datos meteorológicos de una estación del INTA.
 
 Primer argumento: el código (id) de la estación, por ejemplo "NH0472".
 
@@ -57,19 +67,22 @@ estacion1 <- leer_datos_estacion("NH0472", "../estacionNH0472.csv")
 Si el archivo ya está guardado en esa ruta, la función no lo vuelve a descargar; simplemente lo lee desde el archivo existente.
 El resultado es un conjunto de datos (data frame o tibble) con las variables meteorológicas medidas en esa estación.
 
+
 Crear una tabla resumen de temperatura
 
 Una vez que tenemos los datos, podemos generar un resumen estadístico de la temperatura con tabla_resumen_temperatura().
 
 Esta función calcula, para cada estación:
 
-Promedio de la temperatura a 150 cm
+- Promedio de la temperatura a 150 cm
 
-Desvío estándar
+- Desvío estándar
 
-Temperatura máxima
+- Temperatura máxima
 
-Temperatura mínima
+- Temperatura mínima
+
+Ejemplo
 
 ```{r}
 resumen_temp <- tabla_resumen_temperatura(estacion1)
@@ -96,12 +109,14 @@ grafico_temperatura_mensual(estacion1, c("purple"), "Temperatura mensual promedi
 ```
 
 
-El resultado es un gráfico de líneas que muestra cómo varía la temperatura promedio por mes
+El resultado es un gráfico de líneas que muestra cómo varía la temperatura promedio por mes.
 
-Este flujo completo permite:
+Flujo completo del paquete:
 
-Descargar los datos automáticamente.
+Con estas funciones el flujo típico es:
 
-Analizarlos con un resumen estadístico.
+1. Descargar los datos automáticamente.
 
-Visualizarlos de manera clara con un gráfico.
+2. Analizarlos con un resumen estadístico.
+
+3. Visualizarlos de manera clara con un gráfico.

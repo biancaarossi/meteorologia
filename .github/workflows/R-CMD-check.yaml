@@ -1,50 +1,49 @@
 # Workflow derived from https://github.com/r-lib/actions/tree/v2/examples
 # Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
+name: R-CMD-check
+
 on:
   push:
     branches: [main, master]
   pull_request:
 
-name: R-CMD-check.yaml
-
-permissions: read-all
-
 jobs:
   R-CMD-check:
     runs-on: ${{ matrix.config.os }}
-
-    name: ${{ matrix.config.os }} (${{ matrix.config.r }})
-
     strategy:
       fail-fast: false
       matrix:
         config:
           - {os: macos-latest,   r: 'release'}
           - {os: windows-latest, r: 'release'}
-          - {os: ubuntu-latest,   r: 'devel', http-user-agent: 'release'}
-          - {os: ubuntu-latest,   r: 'release'}
-          - {os: ubuntu-latest,   r: 'oldrel-1'}
+          - {os: ubuntu-latest,  r: 'devel'}
+          - {os: ubuntu-latest,  r: 'release'}
+          - {os: ubuntu-latest,  r: 'oldrel-1'}
 
     env:
-      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      R_HttpUserAgent: release
       R_KEEP_PKG_SOURCE: yes
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
+      # Paso 1: Clonar el repo
       - uses: actions/checkout@v4
 
+      # Paso 2: Instalar Pandoc (para las viñetas y documentación)
       - uses: r-lib/actions/setup-pandoc@v2
 
+      # Paso 3: Instalar R
       - uses: r-lib/actions/setup-r@v2
         with:
           r-version: ${{ matrix.config.r }}
-          http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
 
+      # Paso 4: Instalar dependencias de R necesarias
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: any::rcmdcheck
-          needs: check
 
+      # Paso 5: Chequear el paquete
       - uses: r-lib/actions/check-r-package@v2
         with:
           upload-snapshots: true
