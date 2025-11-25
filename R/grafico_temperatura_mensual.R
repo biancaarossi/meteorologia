@@ -10,7 +10,6 @@
 #' @returns Grafico de ggplot con la temperatura mensual de cada estacion
 #' @export
 #'
-#' @importFrom grDevices colors
 #'
 #' @examples
 #' estaciones <- data.frame(
@@ -34,9 +33,9 @@ grafico_temperatura_mensual <- function(df, colores = NULL, titulo = "Temperatur
   n_ids <- length(estaciones)
 
   if (is.null(colores)) {
-    colores <- sample(colors(), n_ids)
+    colores <- sample(grDevices::colors(), n_ids)
   } else if (length(colores) < n_ids) {
-    colores <- c(colores, sample(setdiff(colors(), colores), n_ids - length(colores)))
+    colores <- c(colores, sample(setdiff(grDevices::colors(), colores), n_ids - length(colores)))
   }
   # si vienen con nombres, respetar; si no, mapear en orden
   pal <- if (!is.null(names(colores)) && all(estaciones %in% names(colores))) {
